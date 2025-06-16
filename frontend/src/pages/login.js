@@ -34,7 +34,7 @@ const Login = () => {
 
   return (
     <div className='w-full h-screen flex flex-row font-poppins flex-wrap'>
-      <div className='w-7/12'>
+      <div className='sm:w-7/12 w-full'>
         <div className='w-full pl-10 py-7 flex flex-row justify-start items-center gap-5'>
           <img src={logo} width="70px" alt="logo" />
           <p className='text-3xl font-bold tracking-wide'>AgriLink</p>
@@ -87,7 +87,7 @@ const Login = () => {
         </div>
       </div>
 
-      <div className='w-5/12'>
+      <div className='sm:w-5/12'>
         <div
           className="bg-cover rounded-l-2xl shadow-lg bg-no-repeat bg-center w-full h-full top-0 left-0"
           style={{

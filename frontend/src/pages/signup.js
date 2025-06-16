@@ -45,7 +45,7 @@ const Signup = () => {
 
   return (
     <div className='w-full h-screen flex flex-row font-poppins'>
-      <div className='w-7/12'>
+      <div className='sm:w-7/12 w-full'>
         <div className='w-full pl-10 py-6 flex flex-row justify-start items-center gap-5'>
           <img src={logo} width="70px" alt="logo" />
           <p className='text-3xl font-bold tracking-wide'>AgriLink</p>
@@ -93,7 +93,7 @@ const Signup = () => {
         </div>
       </div>
 
-      <div className='w-5/12'>
+      <div className='sm:w-5/12 '>
         <div className="bg-cover rounded-l-2xl shadow-lg bg-no-repeat bg-center w-full h-full"
           style={{ backgroundImage: `url(${loginimage})`, filter: 'brightness(75%)' }}></div>
       </div>
