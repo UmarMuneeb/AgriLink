@@ -6,7 +6,7 @@ const ManageListingsForm = () => {
   const [showEditForm, setShowEditForm] = useState(false);
   const [editId, setEditId] = useState(null);
   const [formData, setFormData] = useState({
-    tobaccoType: "",
+    crop: "",
     photoUrls: "",
     quantityAvailable: "",
     location: "",
@@ -37,7 +37,7 @@ const ManageListingsForm = () => {
     setEditId(item._id);
     setShowEditForm(true);
     setFormData({
-      tobaccoType: item.tobaccoType,
+      cropType: item.cropType,
       photoUrls: item.photoUrls.join(", "),
       quantityAvailable: item.quantityAvailable,
       location: item.location,
@@ -77,7 +77,7 @@ const ManageListingsForm = () => {
             />
           </div>
           <div className="p-4 flex-1">
-            <h3 className="text-xl font-bold text-gray-800 mb-2">{item.tobaccoType}</h3>
+            <h3 className="text-xl font-bold text-gray-800 mb-2">{item.cropType}</h3>
             <p className="text-gray-700"><strong>Location:</strong> {item.location}</p>
             <p className="text-gray-700"><strong>Phone:</strong> {item.phoneNumber}</p>
             <p className="text-gray-700"><strong>Qty:</strong> {item.quantityAvailable}</p>
@@ -106,10 +106,10 @@ const ManageListingsForm = () => {
             <h3 className="text-xl font-bold mb-4">Edit Listing</h3>
             <div className="flex flex-row gap-2">
               <div className="mb-2">
-                <label className="block mb-1">Tobacco Type</label>
+                <label className="block mb-1">Crop Type</label>
                 <input
-                  value={formData.tobaccoType}
-                  onChange={(e) => setFormData({ ...formData, tobaccoType: e.target.value })}
+                  value={formData.cropType}
+                  onChange={(e) => setFormData({ ...formData, cropType: e.target.value })}
                   className="border-2 rounded-md p-2 w-full border-green-600"
                   required
                 />

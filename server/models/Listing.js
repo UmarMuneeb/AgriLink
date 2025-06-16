@@ -6,9 +6,9 @@ const ListingSchema = new mongoose.Schema({
     ref: 'User',
     required: true
   },
-  tobaccoType: {
+  cropType: {
     type: String,
-    enum: ["Naswar", "Cigarette"],
+    enum: ["Wheat", "Rice"],
     required: true,
   },
   photoUrls: {

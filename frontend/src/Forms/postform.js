@@ -11,7 +11,7 @@ const Postform=({FetchListings,SetShowForm})=>{
   });
 
     // Form state
-    const [tobaccoType, setTobaccoType] = useState("Naswar");
+    const [cropType, setCropType] = useState("Wheat");
     const [photoUrls, setPhotoUrls] = useState("");
     const [quantityAvailable, setQuantityAvailable] = useState("");
     const [location, setLocation] = useState("");
@@ -20,7 +20,7 @@ const Postform=({FetchListings,SetShowForm})=>{
     const [formSuccess, setFormSuccess] = useState("");
 
     const resetForm = () => {
-        setTobaccoType("Naswar");
+        setCropType("Wheat");
         setPhotoUrls("");
         setQuantityAvailable("");
         setLocation("");
@@ -35,7 +35,7 @@ const Postform=({FetchListings,SetShowForm})=>{
         setFormSuccess("");
     
         if (
-          !tobaccoType ||
+          !cropType ||
           !photoUrls.trim() ||
           !quantityAvailable ||
           !location.trim() ||
@@ -59,7 +59,7 @@ const Postform=({FetchListings,SetShowForm})=>{
         try {
           await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/listing/add`, {
             userId,
-            tobaccoType,
+            cropType,
             photoUrls: photosArray,
             quantityAvailable: Number(quantityAvailable),
             location,
@@ -99,14 +99,14 @@ const Postform=({FetchListings,SetShowForm})=>{
           <form className="flex flex-col gap-2 bg-gray-200 p-2 rounded" onSubmit={handleSubmit}>
             <div className="flex flex-row justify-between gap-4">
             <label>
-              Tobacco Type:
+              Crop Type:
               <select
-                value={tobaccoType}
-                onChange={(e) => setTobaccoType(e.target.value)}
+                value={cropType}
+                onChange={(e) => setCropType(e.target.value)}
                 className="w-full border-2 p-2 rounded border-green-600"
               >
-                <option value="Naswar">Naswar</option>
-                <option value="Cigarette">Cigarette</option>
+                <option value="Wheat">Wheat</option>
+                <option value="Rice">Rice</option>
               </select>
             </label>
             <label>

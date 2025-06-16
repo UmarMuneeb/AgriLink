@@ -7,18 +7,18 @@ import ListingModal from "../Forms/ListingModal";
 
 
 const Listingspage = () => {
-  const [tobaccoListings, setTobaccoListings] = useState([]);
+  const [cropListings, setCropListings] = useState([]);
   const [showPostForm, setShowPostForm] = useState(false);
   const [showManagementForm, setShowManagementForm] = useState(false);
-  const [selectedTobaccoType, setSelectedTobaccoType] = useState("");
+  const [selectedCropType, setSelectedCropType] = useState("");
   const [selectedQuantity, setSelectedQuantity] = useState("");
   const [selectedLocation, setSelectedLocation] = useState("");
   const [locationNames, setLocationNames] = useState({});
   const [selectedListing, setSelectedListing] = useState(null);
 
 
-  const handleTobaccoTypeChange = (e) => {
-    setSelectedTobaccoType(e.target.value);
+  const handleCropTypeChange = (e) => {
+    setSelectedCropType(e.target.value);
   };
 
   const handleQuantityChange = (e) => {
@@ -69,9 +69,9 @@ const Listingspage = () => {
 };
 
 
-  const filteredListings = tobaccoListings.filter((item) => {
-    const matchTobaccoType =
-      selectedTobaccoType === "" || item.tobaccoType === selectedTobaccoType;
+  const filteredListings = cropListings.filter((item) => {
+    const matchCropType =
+      selectedCropType === "" || item.cropType === selectedCropType;
     const matchQuantity =
       selectedQuantity === "" ||
       item.quantityAvailable >= parseInt(selectedQuantity);
@@ -81,14 +81,14 @@ const Listingspage = () => {
         locationNames[item.location]
           .toLowerCase()
           .includes(selectedLocation.toLowerCase()));
-    return matchTobaccoType && matchQuantity && matchLocation;
+    return matchCropType && matchQuantity && matchLocation;
   });
 
   const fetchListings = () => {
     axios
       .get(`${process.env.REACT_APP_API_BASE_URL}/api/listing/get`)
       .then((res) => {
-        setTobaccoListings(res.data);
+        setCropListings(res.data);
         // Fetch readable location names for all listings
         res.data.forEach((item) => {
           if (item.location) {
@@ -131,17 +131,17 @@ const Listingspage = () => {
         <aside className="w-64 bg-white p-4 border-r">
           <h2 className="text-lg font-semibold mb-4">Filters</h2>
 
-          {/* Tobacco Type Filter */}
+          {/* Crop Type Filter */}
           <div className="mb-4">
-            <h3 className="font-medium">Tobacco Type</h3>
+            <h3 className="font-medium">Crop Type</h3>
             {["", "Naswar", "Cigarette"].map((type) => (
               <label key={type} className="block">
                 <input
                   type="radio"
-                  name="tobaccoType"
+                  name="cropType"
                   value={type}
-                  checked={selectedTobaccoType === type}
-                  onChange={handleTobaccoTypeChange}
+                  checked={selectedCropType === type}
+                  onChange={handleCropTypeChange}
                 />
                 {type === "" ? "All" : type}
               </label>
@@ -179,10 +179,10 @@ const Listingspage = () => {
             <div key={item._id} className="bg-white rounded shadow p-4 h-80 w-64 flex flex-col" onClick={() => setSelectedListing(item)}>
               <img
                 src={item.photoUrls[0]}
-                alt={item.tobaccoType}
+                alt={item.cropType}
                 className="h-32 w-full object-cover mb-2 rounded"
               />
-              <h3 className="font-semibold text-lg">{item.tobaccoType}</h3>
+              <h3 className="font-semibold text-lg">{item.cropType}</h3>
               <p className="text-sm text-gray-500">
                 {locationNames[item.location] || "Loading..."}
               </p>

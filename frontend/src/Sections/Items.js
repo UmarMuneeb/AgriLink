@@ -77,10 +77,10 @@ const Items = () => {
           <div key={item._id} className="bg-white p-4 rounded-xl shadow-md w-64">
             <img
               src={item.photoUrls?.[0] || "https://via.placeholder.com/300"}
-              alt={item.tobaccoType}
+              alt={item.cropType}
               className="h-32 w-full object-cover rounded"
             />
-            <h3 className="font-semibold text-lg mt-2">{item.tobaccoType}</h3>
+            <h3 className="font-semibold text-lg mt-2">{item.cropType}</h3>
             <p className="text-sm text-gray-500">
               {item.readableLocation || "Loading..."}
             </p>

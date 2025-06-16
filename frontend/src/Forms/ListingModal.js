@@ -23,12 +23,12 @@ const ListingModal = ({ listing, onClose }) => {
         {/* Image */}
         <img
           src={listing.photoUrls[0]}
-          alt={listing.tobaccoType}
+          alt={listing.cropType}
           className="h-48 w-full object-cover rounded mb-4"
         />
 
         {/* Details */}
-        <h2 className="text-xl font-bold mb-2">{listing.tobaccoType}</h2>
+        <h2 className="text-xl font-bold mb-2">{listing.cropType}</h2>
         <p><strong>Quantity:</strong> {listing.quantityAvailable}</p>
         <p><strong>Phone:</strong> {listing.phoneNumber}</p>
         <p><strong>Coordinates:</strong> {listing.location}</p>
