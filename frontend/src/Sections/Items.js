@@ -8,7 +8,7 @@ const Items = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_BASE_URL}api/listing/get`)
+      .get(`${process.env.REACT_APP_API_BASE_URL}/api/listing/get`)
       .then((res) => setItems(res.data.slice(0, 4))) // Show only 4 items
       .catch((err) => console.error("Fetch error:", err));
   }, []);
@@ -16,7 +16,7 @@ const Items = () => {
   return (
     <>
       <div className="flex justify-between items-center px-10 font-poppins py-10">
-        <div className="font-bold text-3xl">Popular Items</div>
+        <div className="font-bold text-3xl">Buy Crops</div>
         <button
           onClick={() => navigate("/listings")}
           className="text-sm text-green-700 font-semibold border border-green-700 px-4 py-1 rounded hover:bg-green-700 hover:text-white transition"
