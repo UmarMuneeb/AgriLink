@@ -17,7 +17,7 @@ const ManageListingsForm = () => {
 
   const fetchMyListings = () => {
     axios
-      .get(`http://localhost:5000/api/listing/user/${userId}`)
+      .get(`${process.env.REACT_APP_API_BASE_URL}/api/listing/user/${userId}`)
       .then((res) => setListings(res.data))
       .catch((err) => console.error("Error:", err));
   };
@@ -28,7 +28,7 @@ const ManageListingsForm = () => {
 
   const deleteListing = (id) => {
     axios
-      .delete(`http://localhost:5000/api/listing/del/${id}`)
+      .delete(`${process.env.REACT_APP_API_BASE_URL}/api/listing/del/${id}`)
       .then(() => fetchMyListings())
       .catch((err) => console.error("Delete error:", err));
   };
@@ -48,7 +48,7 @@ const ManageListingsForm = () => {
   const handleUpdate = (e) => {
     e.preventDefault();
     axios
-      .put(`http://localhost:5000/api/listing/update/${editId}`, {
+      .put(`${process.env.REACT_APP_API_BASE_URL}/listing/update/${editId}`, {
         ...formData,
         photoUrls: formData.photoUrls.split(",").map((url) => url.trim())
       })

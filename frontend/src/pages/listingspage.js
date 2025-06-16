@@ -86,7 +86,7 @@ const Listingspage = () => {
 
   const fetchListings = () => {
     axios
-      .get("http://localhost:5000/api/listing/get")
+      .get(`${process.env.REACT_APP_API_BASE_URL}/api/listing/get`)
       .then((res) => {
         setTobaccoListings(res.data);
         // Fetch readable location names for all listings

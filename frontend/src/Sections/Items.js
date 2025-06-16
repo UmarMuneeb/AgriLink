@@ -8,7 +8,7 @@ const Items = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/listing/get")
+      .get(`${process.env.REACT_APP_API_BASE_URL}api/listing/get`)
       .then((res) => setItems(res.data.slice(0, 4))) // Show only 4 items
       .catch((err) => console.error("Fetch error:", err));
   }, []);

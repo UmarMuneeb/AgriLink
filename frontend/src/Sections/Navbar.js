@@ -13,7 +13,7 @@ const Navbar = ({ isListingsPage = false }) => {
         const userId = localStorage.getItem("userId");
         if (!userId) return;
 
-        const response = await fetch(`http://localhost:5000/api/users/${userId}`);
+        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/users/${userId}`);
         if (!response.ok) throw new Error("Failed to fetch user");
 
         const user = await response.json();
