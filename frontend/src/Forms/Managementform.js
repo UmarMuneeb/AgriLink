@@ -48,7 +48,7 @@ const ManageListingsForm = () => {
   const handleUpdate = (e) => {
     e.preventDefault();
     axios
-      .put(`${process.env.REACT_APP_API_BASE_URL}/listing/update/${editId}`, {
+      .put(`${process.env.REACT_APP_API_BASE_URL}/api/listing/update/${editId}`, {
         ...formData,
         photoUrls: formData.photoUrls.split(",").map((url) => url.trim())
       })

@@ -127,14 +127,14 @@ const Listingspage = () => {
         <Postform SetShowForm={setShowPostForm} FetchListings={fetchListings} />
       )}
 
-      <div className="flex">
-        <aside className="w-64 bg-white p-4 border-r">
+      <div className="flex flex-col sm:flex-row">
+        <div className="sm:w-64 w-full bg-white p-4 border-r">
           <h2 className="text-lg font-semibold mb-4">Filters</h2>
 
           {/* Crop Type Filter */}
           <div className="mb-4">
             <h3 className="font-medium">Crop Type</h3>
-            {["", "Naswar", "Cigarette"].map((type) => (
+            {["", "Wheat", "Rice"].map((type) => (
               <label key={type} className="block">
                 <input
                   type="radio"
@@ -171,7 +171,7 @@ const Listingspage = () => {
               onChange={handleLocationChange}
             />
           </div>
-        </aside>
+        </div>
 
         {/* Listings */}
         <section className="flex flex-row flex-wrap justify-center items-start gap-6 p-6 bg-green-500 flex-1">
