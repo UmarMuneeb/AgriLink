@@ -16,6 +16,10 @@ const Signup = () => {
       setError("Please fill all fields");
       return;
     }
+    if (!email.endsWith("@gmail.com")) {
+      setError("Email must be a Gmail address (e.g., user@gmail.com)");
+      return;
+    }
 
     if (password !== confirmPassword) {
       setError("Passwords do not match");

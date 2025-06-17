@@ -14,7 +14,6 @@ const Hero = () => {
 
   return (
     <div className="relative w-full font-poppins" style={{ height: '80vh' }}>
-      {/* Background image */}
       <div
         className="bg-cover bg-no-repeat bg-center w-full h-full absolute top-0 left-0"
         style={{
@@ -22,8 +21,6 @@ const Hero = () => {
           filter: "brightness(65%)"
         }}
       ></div>
-
-      {/* Foreground content */}
       <div className="text-white h-full w-full relative flex justify-center items-center">
         <div className="flex flex-col gap-10 justify-center items-center">
           <div className="font-bold text-4xl text-center">
