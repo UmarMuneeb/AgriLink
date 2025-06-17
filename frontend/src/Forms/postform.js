@@ -93,8 +93,6 @@ const Postform=({FetchListings,SetShowForm})=>{
     return(
         <div className="bg-black flex bg-opacity-70 fixed mt-10 inset-0 justify-center items-center w-full h-lvh">
           
-          {formError && <p className="text-red-600 mb-2">{formError}</p>}
-          {formSuccess && <p className="text-green-600 mb-2">{formSuccess}</p>}
 
           <form className="flex flex-col gap-2 bg-gray-200 p-2 rounded" onSubmit={handleSubmit}>
             <div className="flex flex-row justify-between gap-4">
