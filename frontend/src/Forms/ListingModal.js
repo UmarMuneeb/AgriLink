@@ -55,11 +55,11 @@ const ListingModal = ({ listing, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div className="text-xs fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       <div className="bg-white rounded-lg w-11/12 max-w-md p-6 relative shadow-lg">
 
         <button
-          className="absolute top-2 right-3 text-gray-600 hover:text-black text-xl font-bold"
+          className="absolute top-2 right-3 text-gray-600 hover:text-black font-bold"
           onClick={onClose}
         >
           ×
@@ -68,10 +68,10 @@ const ListingModal = ({ listing, onClose }) => {
         <img
           src={listing.photoUrls[0]}
           alt={listing.cropType}
-          className="h-48 w-full object-cover rounded mb-4"
+          className="h-48 w-full object-cover rounded mb-2"
         />
 
-        <h2 className="text-xl font-bold mb-2">{listing.cropType}</h2>
+        <h2 className="text-xs font-bold mb-2">{listing.cropType}</h2>
         <p><strong>Quantity:</strong> {listing.quantityAvailable}</p>
         <p><strong>Phone:</strong> {listing.phoneNumber}</p>
         <p><strong>Coordinates:</strong> {listing.location}</p>
@@ -89,36 +89,37 @@ const ListingModal = ({ listing, onClose }) => {
         )}
 
         <div className="mt-5">
-          <h3 className="text-md font-semibold mb-2">Request Transport</h3>
-
-          <label className="block mb-1 text-sm font-medium">Select Transporter</label>
-          <select
-            className="w-full border p-2 rounded mb-3"
-            value={selectedTransporter}
-            onChange={(e) => setSelectedTransporter(e.target.value)}
-          >
-            <option value="">-- Choose --</option>
-            {transporters.map((t) => (
-              <option key={t.name} value={t.name}>{t.name}</option>
-            ))}
-          </select>
-
-          <label className="block mb-1 text-sm font-medium">Your Current Location</label>
+          <h3 className="text-xs font-semibold mb-2">Request Transport</h3>
+          <div className="flex flex-row items-center justify-center gap-2">
+            <label className="flex mb-1 text-xs font-medium">Select Transporter</label>
+            <select
+              className="w-full border p-2 rounded mb-1"
+              value={selectedTransporter}
+              onChange={(e) => setSelectedTransporter(e.target.value)}
+            >
+              <option value="">-- Choose --</option>
+              {transporters.map((t) => (
+                <option key={t.name} value={t.name}>{t.name}</option>
+              ))}
+            </select>
+            <label className="flex mb-1 h-full text-xs font-medium items-center justify-center">Quantity </label>
+            <input
+              type="number"
+              className="w-full border p-2 rounded mb-1"
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
+              placeholder="e.g., 150 kg"
+              min='1'
+            />
+          </div>
+          <label className="block mb-1 text-xs font-medium">Your Current Location</label>
           <input
             className="w-full border p-2 rounded mb-3"
             value={currentLocation}
             onChange={(e) => setCurrentLocation(e.target.value)}
             placeholder="e.g., Sahiwal"
           />
-          <label className="block mb-1 text-sm font-medium">Quantity to Transport</label>
-          <input
-            type="number"
-            className="w-full border p-2 rounded mb-3"
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
-            placeholder="e.g., 150 kg"
-            min='1'
-          />
+          
 
           <button
             onClick={handleSendEmail}
@@ -128,7 +129,7 @@ const ListingModal = ({ listing, onClose }) => {
           </button>
 
           {mailSent && (
-            <p className="text-green-600 text-sm mt-2">✔ Email sent successfully!</p>
+            <p className="text-green-600 text-xs mt-2">✔ Email sent successfully!</p>
           )}
         </div>
       </div>
